@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
+import LazyImage from '../components/LazyImage';
 import CountUp from 'react-countup';
 import TourCard from '../components/TourCard';
 
@@ -723,7 +724,7 @@ const LandingPage = () => {
                     key={`img-1-${repeatIndex}`}
                     className="flex-shrink-0 w-64 h-80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 snap-center group cursor-pointer relative"
                   >
-                    <img 
+                    <LazyImage 
                       src="/DSC_4436.JPG" 
                       alt="Travel moment" 
                       className="w-full h-full object-cover"

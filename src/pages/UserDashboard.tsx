@@ -6,6 +6,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import LoadingSpinner from '../components/LoadingSpinner';
 import PaymentModal from '../components/PaymentModal';
 import ReviewForm from '../components/ReviewForm';
+import LazyImage from '../components/LazyImage';
 
 const stripePromise = loadStripe('pk_test_51Rj1dnBOoulucdCvghV3vwtwYiAgrFek2IsnGS9WH0Sd1IQR3qdU0zGnpbWevLioQT3tKeOm4ifQBEQUxpMzrnm700Zw6YCpDl', {
   stripeLink: false
@@ -352,7 +353,7 @@ const UserDashboard: React.FC = () => {
                     {/* Tour Image */}
                     <div className="flex-shrink-0">
                       <div className="relative group">
-                        <img
+                        <LazyImage
                           src={booking.tour.image || booking.tour.images?.[0] || '/placeholder.jpg'}
                           alt={booking.tour.title}
                           className="w-full lg:w-56 h-40 object-cover rounded-lg shadow-sm"

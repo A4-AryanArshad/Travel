@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import LazyImage from './LazyImage';
 
 interface GalleryItemProps {
   id: string;
@@ -30,7 +31,7 @@ const GalleryItem = ({ id, src, alt, title, category, onImageClick }: GalleryIte
       className="relative group cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 h-full bg-gray-200 hover:scale-105"
       onClick={() => onImageClick(src, alt)}
     >
-      <img
+      <LazyImage
         src={src}
         alt={alt}
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"

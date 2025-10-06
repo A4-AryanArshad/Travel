@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import LoadingSpinner from '../components/LoadingSpinner';
 import BookingForm from '../components/BookingForm';
 import TourReviews from '../components/TourReviews';
+import LazyImage from '../components/LazyImage';
 
 interface Tour {
   _id: string;
@@ -232,10 +233,11 @@ const TourDetailPage = () => {
         <div className="relative h-[calc(100vh-80px)] min-h-[500px] overflow-hidden bg-black mt-20">
           {allImages.length > 0 ? (
             <>
-              <img
+              <LazyImage
                 src={allImages[currentImageIndex]}
                 alt={tour.title}
                 className="w-full h-full object-cover"
+                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
               
