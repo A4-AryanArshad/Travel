@@ -27,6 +27,29 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, isLoggedIn, logout } = useAuth();
 
+  // API base for prefetching to warm backend and cache
+  const API_BASE = (import.meta as any).env?.VITE_API_BASE_URL || 'https://travel-backend-psi.vercel.app';
+
+  // Prefetch tours to reduce first navigation latency to /packages
+  const prefetchTours = () => {
+    try {
+      // Avoid spamming: only prefetch once per session
+      if ((window as any).__toursPrefetched) return;
+      (window as any).__toursPrefetched = true;
+      // Use low-priority idle callback if available
+      const doFetch = () => {
+        fetch(`${API_BASE}/tours`, { credentials: 'include' }).catch(() => {});
+      };
+      // @ts-ignore
+      if (window.requestIdleCallback) {
+        // @ts-ignore
+        window.requestIdleCallback(doFetch, { timeout: 2000 });
+      } else {
+        setTimeout(doFetch, 0);
+      }
+    } catch {}
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -125,6 +148,8 @@ const Navbar = () => {
                     ? 'text-teal-200'
                     : 'text-white hover:text-teal-200'
                     }`}
+                  onMouseEnter={item.path === '/packages' ? prefetchTours : undefined}
+                  onFocus={item.path === '/packages' ? prefetchTours : undefined}
                 >
                   {item.icon}
                   {item.name}
