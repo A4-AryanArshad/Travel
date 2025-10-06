@@ -12,6 +12,9 @@ const stripePromise = loadStripe('pk_test_51Rj1dnBOoulucdCvghV3vwtwYiAgrFek2IsnG
   stripeLink: false
 });
 
+// Centralized API base to use in all requests in this file
+const API_BASE = (import.meta as any).env?.VITE_API_BASE_URL || 'https://travel-backend-psi.vercel.app';
+
 interface Tour {
   _id: string;
   title: string;
@@ -25,7 +28,7 @@ interface Tour {
 
 interface Booking {
   _id: string;
-  tour: Tour;
+  tour: Tour | null; // The tour might be missing/removed; guard against null
   participants: number;
   totalPrice: number;
   bookingDate: string;
@@ -64,7 +67,6 @@ const UserDashboard: React.FC = () => {
   const fetchBookings = async () => {
     try {
       setLoading(true);
-      const API_BASE = (import.meta as any).env?.VITE_API_BASE_URL || 'https://travel-backend-psi.vercel.app';
       const response = await fetch(`${API_BASE}/bookings/my-bookings`, {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -78,6 +80,10 @@ const UserDashboard: React.FC = () => {
         // Check review status for each booking
         const bookingsWithReviewStatus = await Promise.all(
           bookingsData.map(async (booking: Booking) => {
+            // If tour is missing, just return as-is with safe defaults
+            if (!booking?.tour || !booking.tour._id) {
+              return { ...booking, hasReview: false };
+            }
             try {
               const reviewResponse = await fetch(`${API_BASE}/reviews/can-review/${booking.tour._id}`, {
                 headers: {
@@ -91,10 +97,7 @@ const UserDashboard: React.FC = () => {
               };
             } catch (error) {
               console.error('Error checking review status:', error);
-              return {
-                ...booking,
-                hasReview: false
-              };
+              return { ...booking, hasReview: false };
             }
           })
         );
@@ -354,8 +357,8 @@ const UserDashboard: React.FC = () => {
                     <div className="flex-shrink-0">
                       <div className="relative group">
                         <LazyImage
-                          src={booking.tour.image || booking.tour.images?.[0] || '/placeholder.jpg'}
-                          alt={booking.tour.title}
+                          src={booking.tour?.image || booking.tour?.images?.[0] || '/placeholder.jpg'}
+                          alt={booking.tour?.title || 'Tour'}
                           className="w-full lg:w-56 h-40 object-cover rounded-lg shadow-sm"
                         />
                       </div>
@@ -365,8 +368,8 @@ const UserDashboard: React.FC = () => {
                     <div className="flex-1">
                       <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                         <div className="flex-1">
-                          <h3 className="text-xl font-semibold text-gray-900 mb-2 hover:text-teal-600 transition-colors cursor-pointer" onClick={() => navigate(`/tour/${booking.tour._id}`)}>
-                            {booking.tour.title}
+                          <h3 className="text-xl font-semibold text-gray-900 mb-2 hover:text-teal-600 transition-colors cursor-pointer" onClick={() => booking.tour?._id && navigate(`/tour/${booking.tour._id}`)}>
+                            {booking.tour?.title || 'Tour unavailable'}
                           </h3>
                           <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
                             <div className="flex items-center">
@@ -374,13 +377,13 @@ const UserDashboard: React.FC = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                               </svg>
-                              {booking.tour.location}
+                              {booking.tour?.location || '—'}
                             </div>
                             <div className="flex items-center">
                               <svg className="w-4 h-4 mr-1.5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
-                              {booking.tour.duration}
+                              {booking.tour?.duration || '—'}
                             </div>
                           </div>
                         </div>
@@ -459,7 +462,7 @@ const UserDashboard: React.FC = () => {
                           </div>
                         )}
                         <button
-                          onClick={() => navigate(`/tour/${booking.tour._id}`)}
+                          onClick={() => booking.tour?._id && navigate(`/tour/${booking.tour._id}`)}
                           className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-50 hover:border-gray-400 transition-colors flex items-center text-sm"
                         >
                           <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -495,7 +498,7 @@ const UserDashboard: React.FC = () => {
       )}
 
       {/* Review Form Modal */}
-      {showReviewForm && reviewBooking && (
+      {showReviewForm && reviewBooking && reviewBooking.tour && (
         <ReviewForm
           tourId={reviewBooking.tour._id}
           tourTitle={reviewBooking.tour.title}
