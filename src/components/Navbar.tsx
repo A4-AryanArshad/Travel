@@ -39,6 +39,8 @@ const Navbar = () => {
       // Use low-priority idle callback if available
       const doFetch = () => {
         fetch(`${API_BASE}/tours`, { credentials: 'include' }).catch(() => {});
+        // Preload the JS chunk for the Packages page so navigation is instant
+        import('../pages/PackagesPage').catch(() => {});
       };
       // @ts-ignore
       if (window.requestIdleCallback) {
