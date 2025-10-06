@@ -24,5 +24,4 @@ dist-ssr
 *.sw?
 
 # Local dev env files
-.env.local
-.env
+config.bat
