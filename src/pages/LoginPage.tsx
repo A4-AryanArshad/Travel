@@ -177,9 +177,9 @@ const Login = () => {
         <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-teal-100 overflow-hidden">
           {/* Header with travel theme */}
           <div className="bg-gradient-to-r from-teal-600 to-teal-700 px-8 py-6 text-center">
-            <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm p-2">
-                <img src="/Logo1.png" alt="Travel Beyond Tours Logo" className="w-full h-full object-contain" />
+            <div className="flex justify-center mb-6">
+              <div className="w-24 h-24 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm p-3">
+                <img src="/Logo1.png" alt="Travel Beyond Tours Logo" className="w-20 h-20 object-contain" />
               </div>
             </div>
             <h2 className="text-2xl font-bold text-white">

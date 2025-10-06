@@ -110,7 +110,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-20 py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center z-50 pt-2">
-              <img src="/Logo1.png" alt="Travel Beyond Tours Logo" className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain" />
+              <img  src="/Logo1.png" alt="Travel Beyond Tours Logo" className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto object-contain" />
             </Link>
 
             {/* Desktop Navigation - This should be visible on larger screens */}

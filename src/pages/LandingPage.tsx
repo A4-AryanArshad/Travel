@@ -730,7 +730,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                   <div 
@@ -743,7 +743,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                   <div 
@@ -756,7 +756,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                   <div 
@@ -769,7 +769,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                   <div 
@@ -782,7 +782,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                   <div 
@@ -795,7 +795,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                   <div 
@@ -808,7 +808,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                   <div 
@@ -821,7 +821,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                   <div 
@@ -834,7 +834,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                   <div 
@@ -847,7 +847,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                   <div 
@@ -860,7 +860,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                   <div 
@@ -873,7 +873,7 @@ const LandingPage = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <img src="/Logo1.png" alt="Logo" className="w-24 h-24 object-contain" />
+                      <img src="/Logo1.png" alt="Logo" className="w-32 h-32 object-contain" />
                     </div>
                   </div>
                 </>

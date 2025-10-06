@@ -103,11 +103,11 @@ const Footer = () => {
           {/* Center Column - Logo */}
           <div className="flex flex-col items-center justify-center">
             <div className="mb-6">
-              <div className="w-48 h-48 rounded-full border-4 border-white flex items-center justify-center p-4" style={{ backgroundColor: '#3f7670' }}>
+              <div className="w-56 h-56 rounded-full border-4 border-white flex items-center justify-center p-6" style={{ backgroundColor: '#3f7670' }}>
                 <img 
                   src="/Logo1.png" 
                   alt="Travel Beyond Tours Logo" 
-                  className="w-full h-full object-contain"
+                  className="w-40 h-40 object-contain"
                 />
               </div>
             </div>
